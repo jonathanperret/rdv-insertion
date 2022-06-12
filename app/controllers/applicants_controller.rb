@@ -208,8 +208,7 @@ class ApplicantsController < ApplicationController
       @rdv_contexts = RdvContext.where(applicant_id: @applicants.archived(false).ids, context: @current_context)
       @statuses_count = @rdv_contexts.group(:status).count
     end
-    filter_applicants
-    @applicants = @applicants.order(created_at: :desc)
+    filter_and_sort_applicants
   end
 
   def after_save_path
