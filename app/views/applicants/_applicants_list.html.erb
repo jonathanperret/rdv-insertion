@@ -22,7 +22,7 @@
           <th scope="col" class="d-none d-lg-table-cell">Adresse</th>
           <% if @current_motif_category.present? %>
             <% if show_invitations?(@current_configuration) %>
-              <th scope="col">Première invitation</th>
+              <th scope="col"><%= link_to "Première invitation", compute_index_path(@organisation, @department, **params.to_unsafe_h.merge(sort: "first_invitation_sent_at", direction: sort_invitations_columns(params[:direction]))) %></th>
               <th scope="col">Dernière invitation</th>
             <% end %>
             <% if show_notification?(@current_configuration) %>

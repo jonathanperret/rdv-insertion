@@ -127,6 +127,14 @@ module ApplicantsHelper
 
     organisation_applicant_path(organisation, applicant)
   end
+
+  def sort_invitations_columns(direction)
+    if direction.nil? || direction == "desc"
+      "asc"
+    else
+      "desc"
+    end
+  end
 end
 
 # rubocop:enable Metrics/ModuleLength

@@ -15,6 +15,7 @@ class ApplicantsController < ApplicationController
   before_action :set_applicants_and_rdv_contexts, only: [:index]
 
   include FilterableApplicantsConcern
+  include SortableApplicantsConcern
 
   def new
     @applicant = Applicant.new(department: @department)
@@ -210,8 +211,8 @@ class ApplicantsController < ApplicationController
       )
       @statuses_count = @rdv_contexts.group(:status).count
     end
+    sort_applicants
     filter_applicants
-    @applicants = @applicants.order(created_at: :desc)
   end
 
   def after_save_path
