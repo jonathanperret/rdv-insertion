@@ -44,6 +44,7 @@
       <div class="row my-4">
         <h3>Contenu des messages</h3>
         <%= render "configurations/messages_contents/messages_content_form", f: f, template: template, configuration: configuration %>
+        <%= render partial: "configurations/messages_contents/invitations_convocations_links", locals: { configuration: configuration } %>
       </div>
     <% end %>
 
