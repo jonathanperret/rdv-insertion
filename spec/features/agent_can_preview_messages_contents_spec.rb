@@ -46,6 +46,7 @@ describe "Agents can preview messages contents", js: true do
 
     click_button("Enregistrer")
 
+    expect(page).to have_content('Contexte "RSA orientation"')
     expect(page).to have_button("Invitations")
 
     click_button("Invitations")
